@@ -9,7 +9,7 @@ import logging
 import uuid
 from pathlib import Path
 
-from src.steps import step01_script, step02_voice, step03_visuals
+from src.steps import step01_script, step02_voice, step03_visuals, step04_subtitles
 from src.models.pipeline import PipelineContext
 
 logger = logging.getLogger(__name__)
@@ -39,6 +39,7 @@ def run(
     ctx = step01_script.run(ctx)
     ctx = step02_voice.run(ctx, voice=voice)
     ctx = step03_visuals.run(ctx)
+    ctx = step04_subtitles.run(ctx)
 
     logger.info("Pipeline done — run_id=%s", run_id)
     return ctx
