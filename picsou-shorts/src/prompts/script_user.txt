@@ -1,0 +1,3 @@
+Sujet du monologue : {prompt}
+
+Génère un monologue de Picsou sur ce sujet, en respectant exactement le format JSON décrit dans tes instructions.
