@@ -9,8 +9,14 @@ import logging
 import uuid
 from pathlib import Path
 
-from src.steps import step01_script, step02_voice, step03_visuals, step04_subtitles
 from src.models.pipeline import PipelineContext
+from src.steps import (
+    step01_script,
+    step02_voice,
+    step03_visuals,
+    step04_subtitles,
+    step05_compose,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -23,7 +29,7 @@ def run(
     work_base: Path = DEFAULT_WORK_BASE,
 ) -> PipelineContext:
     """
-    Lance le pipeline complet (etapes 1 et 2 pour l'instant).
+    Lance le pipeline complet (5 etapes).
 
     Cree un dossier de travail unique par generation sous work_base/,
     puis execute chaque etape sequentiellement en passant le contexte.
@@ -40,6 +46,7 @@ def run(
     ctx = step02_voice.run(ctx, voice=voice)
     ctx = step03_visuals.run(ctx)
     ctx = step04_subtitles.run(ctx)
+    ctx = step05_compose.run(ctx)
 
     logger.info("Pipeline done — run_id=%s", run_id)
     return ctx
