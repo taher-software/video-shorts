@@ -134,7 +134,7 @@ Fournissez une image de **Uncle Scrooge / Picsou** qui servira de base. Deux app
 - C'est l'approche la plus pragmatique dans le temps imparti
 
 **Option B — Image generee par IA (bonus)**
-- Utiliser **DALL-E 3** (via OpenAI) ou **Imagen** (via Gemini) pour generer une illustration de Picsou
+- Utiliser **DALL-E ** (via OpenAI) ou **Imagen** (via Gemini) pour generer une illustration de Picsou
 - Prompt a documenter
 
 ### 3.2 Animation de parole
@@ -148,7 +148,7 @@ Le personnage doit donner l'**illusion de parler**. Sans outil de lip-sync propr
 
 **Niveau 2 — Bouche ouverte / fermee (attendu)**
 - Deux versions de l'image : bouche ouverte + bouche fermee
-- Alternance basee sur l'amplitude audio (au-dessus d'un seuil = bouche ouverte)
+- Alternance basee sur l'amplitude audio (au-dessus d'un seuil = bouche3 ouverte)
 - Les deux images peuvent etre preparees manuellement (Pillow/Sharp) ou etre deux assets distincts
 
 **Niveau 3 — Multi-frames + phonemes (bonus)**

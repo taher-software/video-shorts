@@ -36,7 +36,6 @@ def _call_tts(text: str, voice: str, model: str) -> bytes:
         input=text,
         response_format="mp3",
     )
-    print("TTS API response:", response.usage)  
     return response.read()
 
 

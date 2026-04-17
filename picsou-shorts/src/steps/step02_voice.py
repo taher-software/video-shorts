@@ -11,9 +11,11 @@ from __future__ import annotations
 import json
 import logging
 
+import openai
+
 from src.services import tts, whisper
 from src.services.ffmpeg import get_audio_duration
-from src.types.pipeline import (
+from src.models.pipeline import (
     PipelineContext,
     TimestampsResult,
     VoiceResult,
@@ -39,7 +41,7 @@ def run(ctx: PipelineContext, voice: str = "onyx") -> PipelineContext:
     logger.info("[2/5] Transcribing with Whisper for timestamps...")
     try:
         raw_words = whisper.transcribe_with_timestamps(audio_path)
-    except Exception as exc:  # noqa: BLE001
+    except (openai.APIError, openai.APIConnectionError) as exc:
         logger.warning("Whisper failed (%s), using estimation", exc)
         raw_words = whisper.estimate_timestamps(
             ctx.script.text, duration

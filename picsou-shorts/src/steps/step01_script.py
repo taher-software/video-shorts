@@ -12,7 +12,7 @@ import json
 import logging
 
 from src.services import llm
-from src.types.pipeline import PipelineContext, ScriptResult
+from src.models.pipeline import PipelineContext, ScriptResult
 
 logger = logging.getLogger(__name__)
 

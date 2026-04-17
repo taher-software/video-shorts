@@ -37,8 +37,9 @@ def transcribe_with_timestamps(
             language="fr",
         )
         
-    print("Whisper API response:", transcript.usage)
-    
+    duration = transcript.duration or 0.0
+    logger.info("Whisper usage: %.1f seconds of audio", duration)
+
     words = transcript.words or []
     result = [
         {"word": w.word, "start": w.start, "end": w.end}
